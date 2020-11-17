@@ -6,6 +6,11 @@
 		元々、FAT16であったが、改めてmac上でディスクユーティリティを使い、FATでformatする(結果は、FAT16なのだが)必要があった。
 		そうしないと、なぜかfileを書き込めなかったので。
 		★★★ くれぐれも、HDDを消してしまわないよう、細心の注意を払うこと ★★★
+
+■Seeed-Studio/ Music_Shield
+	query = arduino MusicPlayer seeed api
+	
+		https://github.com/Seeed-Studio/Music_Shield
 ************************************************************/
 #include <MusicPlayer.h>
 #include <SD.h>
@@ -40,7 +45,7 @@ void setup() {
 	
 #else
 	// 決め打ち
-	enum { NUM_MUSICS = 18, };
+	enum { NUM_MUSICS = 22, };
 	enum { BUF_SIZE = 100, };
 	for(int i = 0; i < NUM_MUSICS; i++){
 		char buf[BUF_SIZE];
@@ -57,12 +62,14 @@ void setup() {
 		}
 	}
 #endif
-	
-	
 }
 
 /******************************
 ******************************/
 void loop() {
+	/********************
+	Music Shueldの制御関数を呼び出す
+	player.update()の方が良かったのでは？？
+	********************/
 	player.play();
 }
